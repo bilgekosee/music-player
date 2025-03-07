@@ -1,0 +1,54 @@
+.sidebar-container {
+  background-color: #ffffff23;
+  display: flex;
+  flex-direction: column;
+  max-width: 300px;
+  border-radius: 20px 0 0 20px;
+  padding: 20px;
+  font-family: "Mulish", sans-serif;
+}
+.sidebar-bigtitle {
+  display: flex;
+  align-items: center;
+  margin-bottom: 40px;
+  gap: 150px;
+}
+.sidebar-title {
+  display: flex;
+  flex-direction: column;
+}
+.library {
+  font-weight: bold;
+  color: #ffffff;
+  font-size: 28px;
+}
+.all-music {
+  font-weight: normal;
+  color: #ffffff7c;
+  font-size: 16px;
+}
+.arrowleft-icon {
+  color: #ffffff;
+  width: 30px;
+  height: 30px;
+}
+.choice-part {
+  display: flex;
+  flex-direction: column;
+}
+.tab {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  margin-bottom: 30px;
+}
+.tab-icon {
+  width: 33px;
+  height: 33px;
+  color: #ffffff4a;
+}
+.tab span {
+  font-size: 18px;
+  font-weight: normal;
+  color: #ffffff;
+}
