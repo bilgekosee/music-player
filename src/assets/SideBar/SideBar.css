@@ -52,3 +52,73 @@
   font-weight: normal;
   color: #ffffff;
 }
+
+.playlist {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+.playlist-all {
+  display: flex;
+  flex-direction: column;
+}
+.playlist span {
+  font-size: 22px;
+  color: #ffffff;
+  font-weight: normal;
+}
+.arrow-icon {
+  width: 23px;
+  height: 23px;
+  color: #ffffff;
+}
+ul {
+  list-style-type: none;
+  padding-left: 0;
+}
+.submenu li {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  font-size: 18px;
+  color: #ffffff;
+  font-weight: normal;
+  margin-bottom: 30px;
+}
+.li-icon {
+  width: 33px;
+  height: 33px;
+  color: #ffffff7c;
+}
+.li-iconImg {
+  display: flex;
+  align-items: center;
+  width: 33px;
+  height: 33px;
+  border-radius: 7px;
+}
+.add-playlist {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+.plus-icon {
+  width: 17px;
+  height: 17px;
+  color: #ffffff;
+}
+.plusIcon-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 33px;
+  height: 33px;
+  border-radius: 7px;
+  background-color: #ffffff36;
+}
+.add-playlist span {
+  font-size: 18px;
+  color: #ffffff;
+  font-weight: normal;
+}
