@@ -1,0 +1,59 @@
+.header-container {
+  display: flex;
+  padding: 10px;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #ffffff23;
+  width: auto;
+  height: 50px;
+  border-radius: 0 20px 0 0;
+}
+
+.logo span {
+  font-family: "Big Shoulders Stencil", sans-serif;
+  font-size: 30px;
+  font-weight: 800;
+  background: linear-gradient(0.25turn, #3f87a6, #186690, #f69d3c);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+.header-input {
+  height: 40px;
+  width: 300px;
+  border: 1px solid white;
+  border-radius: 15px;
+  padding-left: 30px;
+}
+.header-input::placeholder {
+  color: #186690;
+}
+.search {
+  display: flex;
+  align-items: center;
+}
+.search-icon {
+  position: relative;
+  left: 25px;
+  color: #186690;
+}
+.profile {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.icon-notification {
+  width: 30px;
+  height: 30px;
+  color: #ffffff;
+}
+.profile-container img {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  border: 2px solid #ffffff;
+}
+.icon-logout {
+  width: 30px;
+  height: 30px;
+  color: #ffffff;
+}

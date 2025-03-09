@@ -1,7 +1,7 @@
 import { useState } from "react";
 import "./SideBar.css";
 import { BsThreeDots } from "react-icons/bs";
-import { TbClockHour9 } from "react-icons/tb";
+import { IoHome } from "react-icons/io5";
 import { GiMicrophone, GiLoveSong } from "react-icons/gi";
 import { IoAlbums } from "react-icons/io5";
 import { FaUserCircle } from "react-icons/fa";
@@ -28,8 +28,8 @@ const SideBar = () => {
       </div>
       <div className="choice-part">
         <div className="tab">
-          <TbClockHour9 className="tab-icon" />
-          <span>Recently Added</span>
+          <IoHome className="tab-icon" />
+          <span>Home</span>
         </div>
 
         <div className="tab">
