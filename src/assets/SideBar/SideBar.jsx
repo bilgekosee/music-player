@@ -1,6 +1,6 @@
 import { useState } from "react";
 import "./SideBar.css";
-import { VscArrowLeft } from "react-icons/vsc";
+import { BsThreeDots } from "react-icons/bs";
 import { TbClockHour9 } from "react-icons/tb";
 import { GiMicrophone, GiLoveSong } from "react-icons/gi";
 import { IoAlbums } from "react-icons/io5";
@@ -23,7 +23,7 @@ const SideBar = () => {
           <span className="all-music">All Music</span>
         </div>
         <div className="sidebar-icon">
-          <VscArrowLeft className="arrowleft-icon" />
+          <BsThreeDots className="arrowleft-icon" />
         </div>
       </div>
       <div className="choice-part">
