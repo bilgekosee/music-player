@@ -135,7 +135,7 @@ const Home = () => {
           </div>
           <div className="progress-bar-container">
             <div className="progress-bar">
-              <div className="progress-barr-fill"></div>
+              <div className="progress-bar-fill"></div>
             </div>
           </div>
         </div>
