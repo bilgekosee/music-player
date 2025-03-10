@@ -1,5 +1,42 @@
 .home-container {
   background-color: #ffffff23;
   width: auto;
+  font-family: "Mulish", sans-serif;
   height: 100vh;
+}
+.recently-play span {
+  color: #ffffff;
+  font-weight: 400;
+  font-size: 20px;
+  padding: 20px;
+}
+.recently-played-group {
+  padding: 20px;
+  display: flex;
+  gap: 20px;
+  overflow-y: auto;
+  max-height: 400px;
+  scrollbar-width: none;
+}
+
+.recently-played-group::-webkit-scrollbar {
+  display: none;
+}
+
+.recently-played-square {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 170px;
+  min-height: 170px;
+  border-radius: 15px;
+  background-color: #ffffff36;
+}
+.recently-played-square:hover {
+  background: linear-gradient(0.25turn, #3f87a6, #ebf8e1, #f69c3cd7);
+}
+.recently-played-square img {
+  width: 150px;
+  height: 150px;
+  border-radius: 15px;
 }
