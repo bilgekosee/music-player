@@ -1,4 +1,8 @@
 import "./Home.css";
+import { IoPlaySkipBackSharp, IoPlaySkipForward } from "react-icons/io5";
+import { FaCirclePause } from "react-icons/fa6";
+import { BsFillMusicPlayerFill } from "react-icons/bs";
+import { PiMicrophoneStageFill } from "react-icons/pi";
 const Home = () => {
   const recentlyPlayed = [
     {
@@ -103,6 +107,36 @@ const Home = () => {
                 <span className="artist-name">{item.name}</span>
               </div>
             ))}
+          </div>
+        </div>
+      </div>
+      <div className="music-bar-container">
+        <div className="music-bar-wrapper">
+          <div className="music-player-bar">
+            <div className="player-icons-pause">
+              <IoPlaySkipBackSharp className="icons-player" />
+              <FaCirclePause className="icons-player" />
+              <IoPlaySkipForward className="icons-player" />
+            </div>
+            <div className="music-information">
+              <img
+                src="https://upload.wikimedia.org/wikipedia/en/9/95/Power_GD_cover.jpg"
+                className="music-bar-img"
+              />
+              <div className="music-name">
+                <span className="song">POWER</span>
+                <span className="singer">G-DRAGON</span>
+              </div>
+            </div>
+            <div className="musicplayer-icon-container">
+              <BsFillMusicPlayerFill className="musicplayer-icon" />
+              <PiMicrophoneStageFill className="musicplayer-icon" />
+            </div>
+          </div>
+          <div className="progress-bar-container">
+            <div className="progress-bar">
+              <div className="progress-barr-fill"></div>
+            </div>
           </div>
         </div>
       </div>

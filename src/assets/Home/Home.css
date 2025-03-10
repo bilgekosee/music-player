@@ -82,3 +82,109 @@
   z-index: 10;
   transform: scale(1.1);
 }
+.player-icons-pause {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+.icons-player {
+  font-size: 30px;
+  color: #ffffff;
+}
+.icons-player:hover {
+  transform: scale(1.1);
+}
+.music-player-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-radius: 45px;
+  padding: 0 40px;
+  width: 800px;
+  height: 90px;
+  background-color: #bfb3b336;
+}
+.music-bar-container {
+  display: flex;
+  justify-content: center;
+  margin: 20px 0;
+}
+.music-bar-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.music-information {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 20px;
+  width: 300px;
+  height: 68px;
+  background-color: #ffffff36;
+  border-radius: 11px;
+}
+.music-bar-img {
+  width: 52px;
+  height: 52px;
+  border-radius: 7px;
+}
+.music-name {
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+}
+.song {
+  font-size: 18px;
+  font-weight: normal;
+  color: #ffffff;
+}
+.singer {
+  font-size: 16px;
+  color: #a09e9e95;
+}
+.musicplayer-icon {
+  width: 23px;
+  height: 23px;
+  color: #ffffff87;
+}
+.musicplayer-icon:hover {
+  color: #ffffff;
+}
+.musicplayer-icon-container {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.progress-bar-container {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.progress-bar {
+  position: relative;
+  z-index: 1;
+  bottom: 5px;
+  width: 817px;
+  margin: auto;
+  height: 5px;
+  background-color: #ffffff85;
+  border-radius: 0 0 7px 7px;
+  overflow: hidden;
+  transition: background-color 0.3s;
+}
+
+.progress-bar:hover {
+  background-color: #ffffff26;
+}
+
+.progress-bar-fill {
+  width: 50%;
+  background: linear-gradient(0.25turn, #3f87a6, #ebf8e1, #f69c3cd7);
+  transition: width 0.4s ease;
+  border-radius: 5px;
+}
