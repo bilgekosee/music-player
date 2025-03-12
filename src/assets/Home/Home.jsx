@@ -1,15 +1,19 @@
 import "./Home.css";
 import axios from "axios";
 import { IoPlaySkipBackSharp, IoPlaySkipForward } from "react-icons/io5";
-import { FaCirclePause } from "react-icons/fa6";
+import { FaCirclePause, FaPlay } from "react-icons/fa6";
 import { BsFillMusicPlayerFill } from "react-icons/bs";
 import { PiMicrophoneStageFill } from "react-icons/pi";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 
 const Home = () => {
   const [tracks, setTracks] = useState([]);
   const [artists, setArtists] = useState([]);
   const [loading, setLoading] = useState(true);
+  const [currentTrack, setCurrentTrack] = useState(null);
+  const [isPlaying, setIsPlaying] = useState(false);
+  const [progress, setProgress] = useState(0);
+  const audioRef = useRef(null);
 
   /**
    *
@@ -43,10 +47,53 @@ const Home = () => {
     fetchData();
   }, []);
 
+  const togglePlayPause = () => {
+    if (!currentTrack) return;
+
+    if (isPlaying) {
+      audioRef.current.pause();
+    } else {
+      audioRef.current.play();
+    }
+
+    setIsPlaying((prev) => !prev);
+  };
+
+  const changeTrack = (track) => {
+    console.log("Seçilen Şarkı:", track);
+    setCurrentTrack(track);
+    setIsPlaying(true);
+    setProgress(0);
+    setTimeout(() => {
+      audioRef.current.play();
+    }, 200);
+  };
+
+  const nextTrack = () => {
+    if (!currentTrack) return;
+    const currentIndex = tracks.findIndex((t) => t.id === currentTrack.id);
+    const nextIndex = (currentIndex + 1) % tracks.length;
+    changeTrack(tracks[nextIndex]);
+  };
+
+  const prevTrack = () => {
+    if (!currentTrack) return;
+    const currentIndex = tracks.findIndex((t) => t.id === currentTrack.id);
+    const prevIndex = (currentIndex - 1 + tracks.length) % tracks.length;
+    changeTrack(tracks[prevIndex]);
+  };
+
+  const handleTimeUpdate = () => {
+    if (!audioRef.current.duration) return;
+    const progress =
+      (audioRef.current.currentTime / audioRef.current.duration) * 100;
+    setProgress(progress);
+  };
+
   return (
     <div className="home-container">
       <div className="recently-play">
-        <span>Recently Played</span>
+        <span>Trending Songs</span>
         <div className="recently-played-group">
           {loading ? (
             <p>Yükleniyor...</p>
@@ -54,12 +101,17 @@ const Home = () => {
             <p>Şarkı bulunamadı</p>
           ) : (
             tracks.map((track) => (
-              <div key={track.id} className="recently-played-square">
+              <div
+                key={track.id}
+                className="recently-played-square"
+                onClick={() => changeTrack(track)}
+              >
                 <img
+                  className="trend-album-img"
                   src={track.album?.cover_small || "default.png"}
                   alt={track.title}
                 />
-                <p>
+                <p className="trend-album">
                   {track.title} - {track.artist?.name || "Bilinmeyen Sanatçı"}
                 </p>
               </div>
@@ -92,36 +144,61 @@ const Home = () => {
           </div>
         </div>
       </div>
-      <div className="music-bar-container">
-        <div className="music-bar-wrapper">
-          <div className="music-player-bar">
-            <div className="player-icons-pause">
-              <IoPlaySkipBackSharp className="icons-player" />
-              <FaCirclePause className="icons-player" />
-              <IoPlaySkipForward className="icons-player" />
-            </div>
-            <div className="music-information">
-              <img
-                src="https://upload.wikimedia.org/wikipedia/en/9/95/Power_GD_cover.jpg"
-                className="music-bar-img"
-              />
-              <div className="music-name">
-                <span className="song">POWER</span>
-                <span className="singer">G-DRAGON</span>
+      {currentTrack && (
+        <div className="music-bar-container">
+          <div className="music-bar-wrapper">
+            <div className="music-player-bar">
+              <div className="player-icons-pause">
+                <IoPlaySkipBackSharp
+                  className="icons-player"
+                  onClick={prevTrack}
+                />
+                {isPlaying ? (
+                  <FaCirclePause
+                    className="icons-player"
+                    onClick={togglePlayPause}
+                  />
+                ) : (
+                  <FaPlay className="icons-player" onClick={togglePlayPause} />
+                )}
+                <IoPlaySkipForward
+                  className="icons-player"
+                  onClick={nextTrack}
+                />
+              </div>
+              <div className="music-information">
+                <img
+                  src={currentTrack.album.cover_small}
+                  className="music-bar-img"
+                  alt={currentTrack.title}
+                />
+                <div className="music-name">
+                  <span className="song">{currentTrack.title}</span>
+                  <span className="singer">{currentTrack.artist.name}</span>
+                </div>
+              </div>
+              <div className="musicplayer-icon-container">
+                <BsFillMusicPlayerFill className="musicplayer-icon" />
+                <PiMicrophoneStageFill className="musicplayer-icon" />
               </div>
             </div>
-            <div className="musicplayer-icon-container">
-              <BsFillMusicPlayerFill className="musicplayer-icon" />
-              <PiMicrophoneStageFill className="musicplayer-icon" />
+            <div className="progress-bar-container">
+              <div className="progress-bar">
+                <div
+                  className="progress-bar-fill"
+                  style={{ width: `${progress}%` }}
+                ></div>
+              </div>
             </div>
           </div>
-          <div className="progress-bar-container">
-            <div className="progress-bar">
-              <div className="progress-bar-fill"></div>
-            </div>
-          </div>
+          <audio
+            ref={audioRef}
+            src={currentTrack.preview}
+            onTimeUpdate={handleTimeUpdate}
+            onEnded={nextTrack}
+          />
         </div>
-      </div>
+      )}
     </div>
   );
 };
