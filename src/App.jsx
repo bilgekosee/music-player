@@ -1,15 +1,19 @@
 import "./App.css";
+import { useState } from "react";
 import SideBar from "./assets/SideBar/SideBar";
 import Header from "./assets/Header/Header";
 import Home from "./assets/Home/Home";
+import Artist from "./assets/Artist/Artist";
 
 function App() {
+  const [activePage, setActivePage] = useState("home");
   return (
     <div className="app-container">
-      <SideBar />
+      <SideBar setActivePage={setActivePage} />
       <div className="main-content">
         <Header />
-        <Home />
+        {activePage === "home" && <Home />}
+        {activePage === "artist" && <Artist />}
       </div>
     </div>
   );

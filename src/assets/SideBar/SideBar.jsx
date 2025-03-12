@@ -9,7 +9,7 @@ import { IoIosArrowUp, IoIosArrowDown } from "react-icons/io";
 import { BsGrid3X3Gap } from "react-icons/bs";
 import { RiAddLargeLine } from "react-icons/ri";
 
-const SideBar = () => {
+const SideBar = ({ setActivePage }) => {
   const [open, setOpen] = useState(true);
 
   const toggleOpen = () => {
@@ -27,12 +27,12 @@ const SideBar = () => {
         </div>
       </div>
       <div className="choice-part">
-        <div className="tab">
+        <div className="tab" onClick={() => setActivePage("home")}>
           <IoHome className="tab-icon" />
           <span>Home</span>
         </div>
 
-        <div className="tab">
+        <div className="tab" onClick={() => setActivePage("artist")}>
           <GiMicrophone className="tab-icon" />
           <span>Artist</span>
         </div>
