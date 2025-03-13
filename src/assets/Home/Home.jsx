@@ -119,13 +119,13 @@ const Home = () => {
             >
               Back to Home
             </button>
-            <h3>Sanatçının Popüler Şarkıları</h3>
+            <h3>Artist's Popular Songs</h3>
             <ul>
               {artistSongs.map((song) => (
                 <li key={song.id}>
                   <img src={song.album.cover_small} alt={song.title} />
                   <span>{song.title}</span>
-                  <button onClick={() => changeTrack(song)}>Çal</button>
+                  <button onClick={() => changeTrack(song)}>Play</button>
                 </li>
               ))}
             </ul>

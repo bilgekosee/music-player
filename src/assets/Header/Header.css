@@ -57,3 +57,53 @@
   height: 30px;
   color: #ffffff;
 }
+
+.search-results {
+  scrollbar-width: none;
+  position: absolute;
+  top: 120px;
+  left: 60%;
+  transform: translateX(-50%);
+  width: 300px;
+  max-height: 300px;
+  background: rgba(0, 0, 0, 0.8);
+  border-radius: 10px;
+  overflow-y: auto;
+  color: white;
+  padding: 10px;
+}
+.search-result-item {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+  margin: 10px 5px;
+}
+
+.search-item {
+  display: flex;
+  align-items: center;
+  padding: 5px;
+  gap: 10px;
+  cursor: pointer;
+}
+
+.search-item img {
+  width: 40px;
+  height: 40px;
+  border-radius: 5px;
+}
+
+.search-item:hover {
+  background: rgba(255, 255, 255, 0.2);
+}
+.search-result-text {
+  display: flex;
+  gap: 20px;
+}
+.search-song {
+  display: flex;
+  text-align: left;
+}
+.search-artist {
+  max-height: 45px;
+}
