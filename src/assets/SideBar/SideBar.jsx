@@ -32,7 +32,7 @@ const SideBar = ({ setActivePage }) => {
           <span>Home</span>
         </div>
 
-        <div className="tab" onClick={() => setActivePage("artist")}>
+        <div className="tab">
           <GiMicrophone className="tab-icon" />
           <span>Artist</span>
         </div>

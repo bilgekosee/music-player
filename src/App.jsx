@@ -3,17 +3,16 @@ import { useState } from "react";
 import SideBar from "./assets/SideBar/SideBar";
 import Header from "./assets/Header/Header";
 import Home from "./assets/Home/Home";
-import Artist from "./assets/Artist/Artist";
 
 function App() {
   const [activePage, setActivePage] = useState("home");
+  const [selectedTrack, setSelectedTrack] = useState(null);
   return (
     <div className="app-container">
       <SideBar setActivePage={setActivePage} />
       <div className="main-content">
-        <Header />
-        {activePage === "home" && <Home />}
-        {activePage === "artist" && <Artist />}
+        <Header onSearchSelect={setSelectedTrack} />
+        {activePage === "home" && <Home selectedTrack={selectedTrack} />}
       </div>
     </div>
   );

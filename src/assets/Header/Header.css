@@ -57,12 +57,15 @@
   height: 30px;
   color: #ffffff;
 }
+.search-result-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
 .search-results {
   scrollbar-width: none;
   position: absolute;
   top: 120px;
-  left: 60%;
-  transform: translateX(-50%);
   width: 300px;
   max-height: 300px;
   background: linear-gradient(0.25turn, #3f87a6, #ebf8e1, #f69c3cd7);
@@ -76,6 +79,11 @@
   display: flex;
   align-items: center;
   gap: 10px;
+  padding: 5px;
+}
+.search-result-item:hover {
+  background-color: #6a656558;
+  border-radius: 10px;
   padding: 5px;
 }
 

@@ -35,13 +35,39 @@ const Header = ({ onSearchSelect }) => {
       </div>
       <div className="search">
         <FaSearch className="search-icon" />
-        <input
-          type="search"
-          className="header-input"
-          placeholder="Search for songs, artists, or albums"
-          value={searchTerm}
-          onChange={handleSearchChange}
-        />
+        <div className="search-result-container">
+          <input
+            type="search"
+            className="header-input"
+            placeholder="Search for songs, artists, or albums"
+            value={searchTerm}
+            onChange={handleSearchChange}
+          />
+          {searchResult.length > 0 && (
+            <div className="search-results">
+              {searchResult.map((result) => (
+                <div
+                  key={result.id}
+                  className="search-result-item"
+                  onClick={() => {
+                    onSearchSelect(result);
+                    setSearchResult([]);
+                  }}
+                >
+                  <img
+                    src={result.album.cover_small}
+                    alt={result.title}
+                    className="search-result-img"
+                  />
+                  <div className="search-result-text">
+                    <span className="search-artist">{result.artist.name}</span>
+                    <span className="search-song">{result.title}</span>
+                  </div>
+                </div>
+              ))}
+            </div>
+          )}
+        </div>
       </div>
       <div className="profile">
         <div className="notification-container">
@@ -54,28 +80,6 @@ const Header = ({ onSearchSelect }) => {
           <RiLogoutCircleRLine className="icon-logout" />
         </div>
       </div>
-
-      {searchResult.length > 0 && (
-        <div className="search-results">
-          {searchResult.map((result) => (
-            <div
-              key={result.id}
-              className="search-result-item"
-              onClick={() => onSearchSelect(result)}
-            >
-              <img
-                src={result.album.cover_small}
-                alt={result.title}
-                className="search-result-img"
-              />
-              <div className="search-result-text">
-                <span className="search-artist">{result.artist.name}</span>
-                <span className="search-song">{result.title}</span>
-              </div>
-            </div>
-          ))}
-        </div>
-      )}
     </div>
   );
 };

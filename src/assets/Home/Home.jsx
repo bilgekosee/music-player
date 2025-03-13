@@ -6,7 +6,7 @@ import { BsFillMusicPlayerFill } from "react-icons/bs";
 import { PiMicrophoneStageFill } from "react-icons/pi";
 import { useState, useEffect, useRef } from "react";
 
-const Home = () => {
+const Home = ({ selectedTrack }) => {
   const [tracks, setTracks] = useState([]);
   const [artists, setArtists] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -61,13 +61,18 @@ const Home = () => {
     setIsPlaying((prev) => !prev);
   };
 
+  useEffect(() => {
+    if (selectedTrack) {
+      changeTrack(selectedTrack);
+    }
+  }, [selectedTrack]);
+
   const changeTrack = (track) => {
     console.log("Seçilen Şarkı:", track);
     setCurrentTrack(track);
     setIsPlaying(true);
     setProgress(0);
 
-    // Güncellemenin tamamlandığından emin olmak için setTimeout kullanıyoruz.
     setTimeout(() => {
       if (audioRef.current) {
         audioRef.current
