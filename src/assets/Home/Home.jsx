@@ -13,6 +13,8 @@ const Home = () => {
   const [currentTrack, setCurrentTrack] = useState(null);
   const [isPlaying, setIsPlaying] = useState(false);
   const [progress, setProgress] = useState(0);
+  const [artistSongs, setArtistSongs] = useState([]);
+  const [selectedArtist, setSelectedArtist] = useState(null);
   const audioRef = useRef(null);
 
   /**
@@ -64,8 +66,14 @@ const Home = () => {
     setCurrentTrack(track);
     setIsPlaying(true);
     setProgress(0);
+
+    // Güncellemenin tamamlandığından emin olmak için setTimeout kullanıyoruz.
     setTimeout(() => {
-      audioRef.current.play();
+      if (audioRef.current) {
+        audioRef.current
+          .play()
+          .catch((error) => console.log("Çalma hatası:", error));
+      }
     }, 200);
   };
 
@@ -90,62 +98,108 @@ const Home = () => {
     setProgress(progress);
   };
 
+  const fetchArtistSongs = async (artistId) => {
+    try {
+      setSelectedArtist(artistId);
+      const response = await axios.get(`/api/artist/${artistId}/top?limit=10`);
+      setArtistSongs(response.data.data);
+    } catch (error) {
+      console.log("Sanatçının şarkıları yüklenirken hata oluştu:", error);
+    }
+  };
+
   return (
     <div className="home-container">
-      <div className="recently-play">
-        <span>Trending Songs</span>
-        <div className="recently-played-group">
-          {loading ? (
-            <p>Yükleniyor...</p>
-          ) : tracks.length === 0 ? (
-            <p>Şarkı bulunamadı</p>
-          ) : (
-            tracks.map((track) => (
-              <div
-                key={track.id}
-                className="recently-played-square"
-                onClick={() => changeTrack(track)}
-              >
-                <img
-                  className="trend-album-img"
-                  src={track.album?.cover_small || "default.png"}
-                  alt={track.title}
-                />
-                <p className="trend-album">
-                  {track.title} - {track.artist?.name || "Bilinmeyen Sanatçı"}
-                </p>
-              </div>
-            ))
-          )}
-        </div>
-      </div>
-      <div className="artists">
-        <div className="artist">
-          <span className="artist-span">Artist</span>
-          <div className="artists-group">
-            {loading ? (
-              <p>Yükleniyor...</p>
-            ) : artists.length === 0 ? (
-              <p>Sanatçı bulunamadı.</p>
-            ) : (
-              artists.map((artist) => (
-                <div key={artist.id} className="artist-circle">
-                  <img
-                    src={artist.picture_medium || "default.jpg"}
-                    alt={artist.name}
-                    className="artist-img"
-                  />
-                  <span className="artist-name">
-                    {artist.name || "Bilinmeyen Sanatçı"}
-                  </span>
-                </div>
-              ))
-            )}
+      {selectedArtist && artistSongs.length > 0 ? (
+        <div className="artist-song-wrapper">
+          <div className="artist-songs-container">
+            <button
+              className="back-button"
+              onClick={() => setSelectedArtist(null)}
+            >
+              Back to Home
+            </button>
+            <h3>Sanatçının Popüler Şarkıları</h3>
+            <ul>
+              {artistSongs.map((song) => (
+                <li key={song.id}>
+                  <img src={song.album.cover_small} alt={song.title} />
+                  <span>{song.title}</span>
+                  <button onClick={() => changeTrack(song)}>Çal</button>
+                </li>
+              ))}
+            </ul>
           </div>
         </div>
-      </div>
+      ) : (
+        <>
+          <div className="recently-play">
+            <span>Trending Songs</span>
+            <div className="recently-played-group">
+              {loading ? (
+                <p>Yükleniyor...</p>
+              ) : tracks.length === 0 ? (
+                <p>Şarkı bulunamadı</p>
+              ) : (
+                tracks.map((track) => (
+                  <div
+                    key={track.id}
+                    className="recently-played-square"
+                    onClick={() => changeTrack(track)}
+                  >
+                    <img
+                      className="trend-album-img"
+                      src={track.album?.cover_small || "default.png"}
+                      alt={track.title}
+                    />
+                    <p className="trend-album">
+                      {track.title} -{" "}
+                      {track.artist?.name || "Bilinmeyen Sanatçı"}
+                    </p>
+                  </div>
+                ))
+              )}
+            </div>
+          </div>
+
+          <div className="artists">
+            <div className="artist">
+              <span className="artist-span">Artist</span>
+              <div className="artists-group">
+                {loading ? (
+                  <p>Yükleniyor...</p>
+                ) : artists.length === 0 ? (
+                  <p>Sanatçı bulunamadı.</p>
+                ) : (
+                  artists.map((artist) => (
+                    <div
+                      key={artist.id}
+                      className="artist-circle"
+                      onClick={() => {
+                        fetchArtistSongs(artist.id);
+                      }}
+                    >
+                      <img
+                        src={artist.picture_medium || "default.jpg"}
+                        alt={artist.name}
+                        className="artist-img"
+                      />
+                      <span className="artist-name">
+                        {artist.name || "Bilinmeyen Sanatçı"}
+                      </span>
+                    </div>
+                  ))
+                )}
+              </div>
+            </div>
+          </div>
+        </>
+      )}
       {currentTrack && (
-        <div className="music-bar-container">
+        <div
+          className="music-bar-container"
+          style={{ display: currentTrack ? "flex" : "none" }}
+        >
           <div className="music-bar-wrapper">
             <div className="music-player-bar">
               <div className="player-icons-pause">
