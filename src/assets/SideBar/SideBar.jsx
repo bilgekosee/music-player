@@ -9,7 +9,7 @@ import { IoIosArrowUp, IoIosArrowDown } from "react-icons/io";
 import { BsGrid3X3Gap } from "react-icons/bs";
 import { RiAddLargeLine } from "react-icons/ri";
 
-const SideBar = ({ setActivePage }) => {
+const SideBar = ({ setActivePage, setShowModal }) => {
   const [open, setOpen] = useState(true);
 
   const toggleOpen = () => {
@@ -80,11 +80,15 @@ const SideBar = ({ setActivePage }) => {
           )}
         </div>
         <div className="add-playlist">
-          <div className="plusIcon-container">
-            <RiAddLargeLine className="plus-icon" />
-          </div>
-
-          <span>Add Playlist</span>
+          <button
+            className="button-playlist"
+            onClick={() => setShowModal(true)}
+          >
+            <div className="plusIcon-container">
+              <RiAddLargeLine className="plus-icon" />
+            </div>
+            <span>Add Playlist</span>
+          </button>
         </div>
       </div>
     </div>

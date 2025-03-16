@@ -132,8 +132,14 @@ li:hover {
 .add-playlist {
   display: flex;
   align-items: center;
-  gap: 20px;
   margin-top: auto;
+}
+.button-playlist {
+  display: flex;
+  align-items: center;
+  background-color: #ffffff00;
+  border: none;
+  gap: 20px;
 }
 .plus-icon {
   width: 17px;
