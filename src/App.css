@@ -9,7 +9,9 @@ body {
   grid-template-columns: 300px 1fr;
   height: 100vh;
 }
-
+.app-container.sidebar-closed {
+  grid-template-columns: 120px 1fr;
+}
 .main-content {
   display: flex;
   flex-direction: column;

@@ -1,6 +1,6 @@
 import { useState } from "react";
 import "./SideBar.css";
-import { BsThreeDots } from "react-icons/bs";
+import { BsThreeDots, BsThreeDotsVertical } from "react-icons/bs";
 import { IoHome } from "react-icons/io5";
 import { GiMicrophone, GiLoveSong } from "react-icons/gi";
 import { IoAlbums } from "react-icons/io5";
@@ -9,21 +9,36 @@ import { IoIosArrowUp, IoIosArrowDown } from "react-icons/io";
 import { BsGrid3X3Gap } from "react-icons/bs";
 import { RiAddLargeLine } from "react-icons/ri";
 
-const SideBar = ({ setActivePage, setShowModal, playlists }) => {
+const SideBar = ({
+  setActivePage,
+  setShowModal,
+  playlists,
+  isOpen,
+  setIsOpen,
+}) => {
   const [open, setOpen] = useState(true);
 
   const toggleOpen = () => {
     setOpen((prevOpen) => !prevOpen);
   };
   return (
-    <div className="sidebar-container">
+    <div className={`sidebar-container ${isOpen ? "open" : "closed"}`}>
       <div className="sidebar-bigtitle">
         <div className="sidebar-title">
           <span className="library">Library</span>
           <span className="all-music">All Music</span>
         </div>
-        <div className="sidebar-icon">
-          <BsThreeDots className="arrowleft-icon" />
+        <div
+          className="sidebar-icon"
+          onClick={() => {
+            setIsOpen(!isOpen);
+          }}
+        >
+          {isOpen ? (
+            <BsThreeDots className="arrowleft-icon" />
+          ) : (
+            <BsThreeDotsVertical className="arrowleft-icon" />
+          )}
         </div>
       </div>
       <div className="choice-part">

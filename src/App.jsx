@@ -13,6 +13,7 @@ function App() {
     { name: "Good Vibes Only", image: "./music.jpg" },
     { name: "Sad", image: "./sad.jpg" },
   ]);
+  const [isSidebarOpen, setIsSidebarOpen] = useState(true);
 
   const handleAddPlaylist = (name, file) => {
     const newPlaylist = {
@@ -23,11 +24,13 @@ function App() {
     setShowModal(false);
   };
   return (
-    <div className="app-container">
+    <div className={`app-container ${!isSidebarOpen ? "sidebar-closed" : ""}`}>
       <SideBar
         setActivePage={setActivePage}
         setShowModal={setShowModal}
         playlists={playlists}
+        isOpen={isSidebarOpen}
+        setIsOpen={setIsSidebarOpen}
       />
       <div className="main-content">
         <Header onSearchSelect={setSelectedTrack} />

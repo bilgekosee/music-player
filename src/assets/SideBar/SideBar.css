@@ -7,6 +7,30 @@
   padding: 20px 40px;
   font-family: "Mulish", sans-serif;
 }
+.sidebar-container.closed {
+  width: 40px;
+}
+.sidebar-container.closed .tab span,
+.sidebar-container.closed .playlist span,
+.sidebar-container.closed .add-playlist span,
+.sidebar-container.closed .library,
+.sidebar-container.closed .all-music,
+.sidebar-container.closed .playlist-all,
+.sidebar-container.closed .submenu li:not(:first-child) {
+  display: none; /* Sadece ikonlar kalıyor */
+}
+
+.sidebar-container.closed .tab,
+.sidebar-container.closed .playlist,
+.sidebar-container.closed .add-playlist {
+  justify-content: center; /* ikonları ortaya hizala */
+}
+
+.sidebar-container.closed .tab-icon,
+.sidebar-container.closed .li-icon,
+.sidebar-container.closed .li-iconImg {
+  margin: 0 auto;
+}
 .sidebar-bigtitle {
   display: flex;
   align-items: center;
