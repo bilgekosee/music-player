@@ -17,13 +17,13 @@
 .sidebar-container.closed .all-music,
 .sidebar-container.closed .playlist-all,
 .sidebar-container.closed .submenu li:not(:first-child) {
-  display: none; /* Sadece ikonlar kalıyor */
+  display: none;
 }
 
 .sidebar-container.closed .tab,
 .sidebar-container.closed .playlist,
 .sidebar-container.closed .add-playlist {
-  justify-content: center; /* ikonları ortaya hizala */
+  justify-content: center;
 }
 
 .sidebar-container.closed .tab-icon,

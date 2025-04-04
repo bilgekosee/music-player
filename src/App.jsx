@@ -13,7 +13,7 @@ function App() {
     { name: "Good Vibes Only", image: "./music.jpg" },
     { name: "Sad", image: "./sad.jpg" },
   ]);
-  const [isSidebarOpen, setIsSidebarOpen] = useState(true);
+  const [isSidebarOpen, setIsSidebarOpen] = useState(false);
 
   const handleAddPlaylist = (name, file) => {
     const newPlaylist = {

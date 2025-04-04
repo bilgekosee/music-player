@@ -281,3 +281,147 @@
   background: linear-gradient(0.25turn, #3f87a6, #ebf8e1, #f69c3cd7);
   color: #3f87a6;
 }
+
+@media (max-width: 1290px) {
+  .music-player-bar {
+    width: 600px;
+  }
+  .progress-bar-container {
+    width: 76%;
+  }
+}
+@media (max-width: 1094px) {
+  .recently-played-square {
+    min-width: 120px;
+    min-height: 120px;
+  }
+  .recently-played-square img {
+    width: 100px;
+    height: 100px;
+  }
+  .artist-circle img {
+    height: 130px;
+    width: 130px;
+  }
+  .artist span {
+    font-size: 18px;
+  }
+  .music-player-bar {
+    width: 400px;
+  }
+  .progress-bar-container {
+    width: 52%;
+  }
+  .icons-player {
+    font-size: 18px;
+  }
+  .music-information {
+    width: 150px;
+  }
+  .music-bar-img {
+    width: 35px;
+    height: 35px;
+  }
+  .song {
+    font-size: 12px;
+  }
+}
+@media (max-width: 881px) {
+  .recently-played-square {
+    min-width: 100px;
+    min-height: 100px;
+  }
+  .recently-played-square img {
+    width: 80px;
+    height: 80px;
+  }
+  .artist-circle img {
+    height: 105px;
+    width: 105px;
+  }
+  .artist span {
+    font-size: 16px;
+  }
+  .music-player-bar {
+    width: 300px;
+  }
+  .progress-bar-container {
+    width: 40%;
+  }
+  .icons-player {
+    font-size: 18px;
+  }
+  .music-information {
+    width: 105px;
+    gap: 3px;
+  }
+  .music-bar-img {
+    width: 35px;
+    height: 35px;
+  }
+  .song {
+    font-size: 10px;
+  }
+  .singer {
+    font-size: 12px;
+  }
+  .musicplayer-icon-container {
+    gap: 5px;
+  }
+  .musicplayer-icon {
+    width: 18px;
+    height: 18px;
+  }
+}
+@media (max-width: 781px) {
+  .recently-played-square {
+    min-width: 80px;
+    min-height: 80px;
+  }
+  .recently-played-square img {
+    width: 60px;
+    height: 60px;
+  }
+  .artist-circle img {
+    height: 90px;
+    width: 90px;
+  }
+  .artist span {
+    font-size: 12px;
+  }
+  .music-player-bar {
+    width: 250px;
+    padding: 0 10px;
+  }
+  .progress-bar-container {
+    width: 26%;
+  }
+  .icons-player {
+    font-size: 12px;
+  }
+  .music-information {
+    width: 80px;
+    gap: 3px;
+  }
+  .music-bar-img {
+    width: 35px;
+    height: 35px;
+  }
+  .song {
+    font-size: 10px;
+  }
+  .singer {
+    font-size: 12px;
+  }
+  .musicplayer-icon-container {
+    gap: 5px;
+  }
+  .musicplayer-icon {
+    width: 18px;
+    height: 18px;
+  }
+  .home-container {
+    overflow-y: auto;
+    scrollbar-width: none;
+  }
+}
