@@ -9,7 +9,7 @@ import { IoIosArrowUp, IoIosArrowDown } from "react-icons/io";
 import { BsGrid3X3Gap } from "react-icons/bs";
 import { RiAddLargeLine } from "react-icons/ri";
 
-const SideBar = ({ setActivePage, setShowModal }) => {
+const SideBar = ({ setActivePage, setShowModal, playlists }) => {
   const [open, setOpen] = useState(true);
 
   const toggleOpen = () => {
@@ -68,14 +68,16 @@ const SideBar = ({ setActivePage, setShowModal }) => {
                 <BsGrid3X3Gap className="li-icon" />
                 All Playlist
               </li>
-              <li>
-                <img src="./music.jpg" className="li-iconImg" />
-                Good Vibes Only
-              </li>
-              <li>
-                <img src="./sad.jpg" className="li-iconImg" />
-                Sad
-              </li>
+              {playlists.map((pl, index) => (
+                <li key={index}>
+                  {pl.image ? (
+                    <img src={pl.image} className="li-iconImg" alt={pl.name} />
+                  ) : (
+                    <BsGrid3X3Gap className="li-icon" />
+                  )}
+                  {pl.name}
+                </li>
+              ))}
             </ul>
           )}
         </div>

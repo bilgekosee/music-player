@@ -9,14 +9,35 @@ function App() {
   const [activePage, setActivePage] = useState("home");
   const [selectedTrack, setSelectedTrack] = useState(null);
   const [showModal, setShowModal] = useState(false);
+  const [playlists, setPlaylists] = useState([
+    { name: "Good Vibes Only", image: "./music.jpg" },
+    { name: "Sad", image: "./sad.jpg" },
+  ]);
+
+  const handleAddPlaylist = (name, file) => {
+    const newPlaylist = {
+      name,
+      image: file ? URL.createObjectURL(file) : null,
+    };
+    setPlaylists((prev) => [...prev, newPlaylist]);
+    setShowModal(false);
+  };
   return (
     <div className="app-container">
-      <SideBar setActivePage={setActivePage} setShowModal={setShowModal} />
+      <SideBar
+        setActivePage={setActivePage}
+        setShowModal={setShowModal}
+        playlists={playlists}
+      />
       <div className="main-content">
         <Header onSearchSelect={setSelectedTrack} />
         {activePage === "home" && <Home selectedTrack={selectedTrack} />}
       </div>
-      <AddPlaylist showModal={showModal} setShowModal={setShowModal} />
+      <AddPlaylist
+        showModal={showModal}
+        setShowModal={setShowModal}
+        onAdd={handleAddPlaylist}
+      />
     </div>
   );
 }

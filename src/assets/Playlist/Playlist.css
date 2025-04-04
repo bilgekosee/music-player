@@ -32,6 +32,7 @@
 }
 .add-playlit-input {
   width: 300px;
+  padding-left: 20px;
   height: 40px;
   border-radius: 10px;
   border: none;

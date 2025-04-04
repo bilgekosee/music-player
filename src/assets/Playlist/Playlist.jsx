@@ -1,7 +1,7 @@
 import { useState } from "react";
 import "./Playlist.css";
 
-const AddPlaylist = ({ showModal, setShowModal }) => {
+const AddPlaylist = ({ showModal, setShowModal, onAdd }) => {
   const [addPlaylistName, setAddPlaylistName] = useState("");
   const [selectedFile, setSelectedFile] = useState(null);
 
@@ -15,6 +15,9 @@ const AddPlaylist = ({ showModal, setShowModal }) => {
       return;
     }
 
+    onAdd(addPlaylistName, selectedFile);
+    setAddPlaylistName("");
+    setSelectedFile(null);
     console.log("Playlist Name:", addPlaylistName);
     console.log("Selected File:", selectedFile);
 
