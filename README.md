@@ -1,14 +1,14 @@
 ## 📸 Uygulama Görselleri
 
-| Ekran 1 | Ekran 2 | Ekran 3 |
+|  1 |  2 |  3 |
 |--------|---------|---------|
 | [![1](./screenshots/1.png)](./screenshots/1.png) | [![2](./screenshots/2.png)](./screenshots/2.png) | [![3](./screenshots/3.png)](./screenshots/3.png) |
 
-| Ekran 4 | Ekran 5 | Ekran 6 |
+|  4 |  5 |  6 |
 |--------|---------|---------|
 | [![4](./screenshots/4.png)](./screenshots/4.png) | [![5](./screenshots/5.png)](./screenshots/5.png) | [![6](./screenshots/6.png)](./screenshots/6.png) |
 
-| Ekran 7 |
+|  7 |
 |---------|
 | [![7](./screenshots/7.png)](./screenshots/7.png) |
 
