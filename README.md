@@ -1,3 +1,33 @@
+## 📸 Uygulama Görselleri
+
+### 1. Ekran
+
+![Ekran 1](./screenshots/1.png)
+
+### 2. Ekran
+
+![Ekran 2](./screenshots/2.png)
+
+### 3. Ekran
+
+![Ekran 3](./screenshots/3.png)
+
+### 4. Ekran
+
+![Ekran 4](./screenshots/4.png)
+
+### 5. Ekran
+
+![Ekran 5](./screenshots/5.png)
+
+### 6. Ekran
+
+![Ekran 6](./screenshots/6.png)
+
+### 7. Ekran
+
+![Ekran 7](./screenshots/7.png)
+
 # React + Vite
 
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
