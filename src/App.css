@@ -23,3 +23,8 @@ body {
   background-color: #ffffff23;
   overflow-y: auto;
 }
+@media (max-width: 600px) {
+  body {
+    margin: 0;
+  }
+}
